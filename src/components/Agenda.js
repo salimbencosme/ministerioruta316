@@ -1,6 +1,45 @@
 import React, {Component} from 'react'
+import Card from "./Card";
 
 class Agenda extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {presentation : []};
+    }
+
+    componentWillMount() {
+        fetch('https://ministerioruta316-7fc25.firebaseio.com/agenda.json')
+            .then((response) => {
+                return response.json()
+            })
+            .then((agenda) => {
+
+                var arr = [];
+
+                for(var x in agenda){
+                    arr.push(agenda[x]);
+                }
+
+                this.setState({ presentation: arr })
+
+                console.log(this.state.presentation);
+            })
+    }
+
+
+    createAgenda(){
+/*
+        const listCards = this.state.presentation.map((data) =>
+            alert(data.year)
+        );
+        return ({listCards});
+
+        */
+
+        var x = [1,2,3,4].map( function(item) {return item * 10;});
+    }
+
 
     render(){
 
@@ -18,131 +57,8 @@ class Agenda extends Component{
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="main-timeline">
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
+                                        {this.createAgenda()}
 
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
-
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
-
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
-
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
-
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="timeline">
-                                            <div className="timeline-content">
-                                                <span className="year">2018</span>
-                                                <div className="content-inner">
-                                                    <span className="icon"><i className="fa fa-institution"></i></span>
-                                                    <h3 className="title">IASD CAMPANA II</h3>
-                                                    <p className="description">
-                                                        <ul>
-                                                            <li><strong>Fecha: </strong>8 de Junio</li>
-                                                            <li><strong>Drama: </strong>Pablo el Emisario</li>
-                                                            <li><strong>Dirección: </strong><a className="colorWhite" href="https://goo.gl/maps/SXrPBsNgWdS2" target="_blank">Google Map</a></li>
-                                                        </ul>
-
-                                                        DRAMA · MUSICA ESPECIAL · LA PALABRA DE DIOS
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
